@@ -1,0 +1,268 @@
+*,html,body{
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+    border-style: none;
+}
+
+.invisible{
+    display: none;
+}
+
+#wrapper{
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    max-width: 1366px;
+    padding-bottom: 30px;
+    background-color: #f2f2f2;
+    
+
+    .btn-container{
+        width: 100%;
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+
+        #addBtn{
+            margin-left: 20%;
+            
+            .btn-area{
+                width: 40px;
+                height: 40px;
+                background-color: #000;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+
+    #list-container{
+        width: 100%;
+        min-height: 200px;
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        .items{
+            width: 30%;
+            height: auto;
+            display: grid;
+            grid-gap: 10px;
+            grid-template-rows: repeat(autofit, minmax(1fr, 250px));
+
+            .item-container{
+                width: 100%;
+                background-color: #fff;
+                padding: 10px;
+                border-radius: 3px;
+                height: 100%;
+                
+                .item-left{
+                    width: 90%;
+                    float: left;
+
+                    .item-title {
+                        width: 100%;
+                        height: auto;
+                        overflow: hidden;
+
+                        h1{
+                            font-family: noto-serif;
+                            font-size: 1rem;
+                            letter-spacing: 0.5px;
+                            font-weight: bold;
+                        }
+                    }
+
+                    .item-content{
+                        width: 100%;
+                        height: 50px;
+                        max-height: 150px;
+                        overflow: hidden;
+
+                        p{
+                            font-family: acme;
+                            font-size: 0.8rem;
+                            font-weight: 300;
+                            letter-spacing: 0.5px;
+                            color: rgba(10, 10, 10, 0.664);
+                        }
+                    }
+                }
+
+                .item-right{
+                    width: 10%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    float: right;
+
+                    .clear-btn{
+                        width: 20px;
+                        height: 20px;
+                        margin-top: 25px;
+                        border-radius: 50%;
+                        background-color: red;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        overflow: hidden;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+.model-box-container{
+    width: 100%;
+    height: 100vh;
+    max-width: 1366px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.767);
+
+    .model-area{
+        width: 35%;
+        height: 50vh;
+        border-radius: 3px;
+        padding: 15px;
+        background-color: #e0e0e0;
+
+        .add-data{
+            width: 90%;
+            height: 10%;
+            float: left;
+            text-align: center;
+            h1{
+                font-family: acme;
+                font-size: 18px;
+                text-transform: uppercase;
+                font-weight: bold;
+                letter-spacing: 0.5px;
+            }
+        }
+
+        .closeBtn{
+            width: 10%;
+            height: 10%;
+            float: right;
+
+            .btn-container{
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+                background-color: red;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        .input-area{
+            width: 100%;
+            height: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            input[type="text"]{
+                width: 70%;
+                height: 40px;
+                border-radius: 3px;
+                padding-left: 5px;
+                color: rgb(65, 64, 64);
+            }
+
+            #content{
+                margin-top: 20px;
+            }
+
+            #submitBtn{
+                width: 90px;
+                height: 35px;
+                margin-top: 20px;
+                border-radius: 2px;
+                background-color: black;
+                color: white;
+                font-size: 16px;
+                text-transform: capitalize;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+
+
+.alert-model{
+    width: 100%;
+    height: 100vh;
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(10, 10, 10, 0.664);
+
+    .alert-container{
+        width: 30%;
+        height: 30%;
+        background-color: white;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        .heading{
+            width: 100%;
+            height: 5%;
+            margin-bottom: 30px;
+            h1{
+                font-size: 1rem;
+                font-family: kaushan script;
+                font-weight: bolder;
+            }
+        }
+
+        .desc{
+            width: 100%;
+            height: 10%;
+            margin-bottom: 20px;
+        }
+
+        .alert-btn{
+            width: 100%;
+            height: 30%;
+            margin-top: 20px;
+
+            button{
+                width: 75px;
+                height: 35px;
+                border-radius: 5px;
+                background-color: black;
+                color: white;
+                font-family: acme;
+                font-size: 16px;
+            }
+
+            #dialogCancel{
+                margin-left: 20px;
+            }
+        }
+    }
+}
