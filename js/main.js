@@ -2,8 +2,8 @@ const mainAddBtn = document.getElementById("mainAddBtn");
 const itemsContainer = document.querySelector(".items");
 // model box
 const modelBox = document.getElementsByClassName("modelbox");
-const titleInput = document.getElementsByName("title");
-const contentInput = document.getElementsByName("content");
+const titleInput = document.getElementById("title");
+const contentInput = document.getElementById("content");
 const addContentBtn = document.getElementById("submitBtn");
 const modelCloseBtn = document.getElementById("modelCloseBtn");
 
@@ -18,15 +18,36 @@ const alertCancel = document.getElementById("dialogCancel");
 
 
 
-var d = JSON.parse(data);
-console.log(d);
+var data = [
+    {
+        "id": "1",
+        "title":"how are today aditya ",
+        "content": "defenetly final sections"
+    },
+    {
+        "id": "1",
+        "title": "how are today aditya ",
+        "content": "defenetly final sections"
+    },
+    {
+        "id": "1",
+        "title": "how are today aditya ",
+        "content": "defenetly final sections"
+    },
+    {
+        "id": "1",
+        "title": "how are today aditya ",
+        "content": "defenetly final sections"
+    }
+]
+
 
 
 // event listener
 
 mainAddBtn.addEventListener('click', showModelBox);
 modelCloseBtn.addEventListener('click', hideModelBox);
-
+addContentBtn.addEventListener("click", addDataToDB)
 
 function showModelBox(){
     modelBox[0].classList.remove("invisible");
@@ -37,5 +58,9 @@ function hideModelBox(){
 }
 
 function addDataToDB(){
-
+    if (titleInput != "" && contentInput != "") {
+        const id = data.length +1;
+        
+        data.push({id: id,title: titleInput, content: contentInput})
+    }
 }
