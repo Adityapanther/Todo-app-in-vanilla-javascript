@@ -1,5 +1,6 @@
 const mainAddBtn = document.getElementById("mainAddBtn");
 const itemsContainer = document.querySelector(".items");
+const itemDeleteBtn = document.getElementById("");
 // model box
 const modelBox = document.getElementsByClassName("modelbox");
 const titleInput = document.getElementById("title");
@@ -69,7 +70,7 @@ function addDataToDB(callBack){
         
         
        var newID =  jData.push({
-            "_id": id,
+            "_id": id.toString(),
             "title":titleInput.value,
             "content": contentInput.value
         });
@@ -85,10 +86,14 @@ function addDataToDB(callBack){
 }
 
 function displayData(){
-    for(d in jData){
-        var dataID = jData[d]._id
-        var dataTitle = jData[d].title
-        var dataContent = jData[d].content
+
+    itemsContainer.innerHTML = ``;
+    for(let i = jData.length -1; i >= 0; i--){
+        console.log(i);
+        
+        var dataID = jData[i]._id;
+        var dataTitle = jData[i].title;
+        var dataContent = jData[i].content;
         
         var template = `<div id= "${dataID}" class="item-container">
                     <div class="item-left">
