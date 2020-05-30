@@ -47,7 +47,9 @@ var jData = [
 
 mainAddBtn.addEventListener('click', showModelBox);
 modelCloseBtn.addEventListener('click', hideModelBox);
-addContentBtn.addEventListener("click", addDataToDB)
+addContentBtn.addEventListener("click", ()=>{
+    addDataToDB(displayData)
+})
 
 // display post todo app
 
@@ -61,7 +63,7 @@ function hideModelBox(){
     modelBox[0].classList.add("invisible");
 }
 
-function addDataToDB(){
+function addDataToDB(callBack){
     if (titleInput.value != "" && contentInput.value != "") {
         const id = jData.length +1;
         
@@ -73,15 +75,10 @@ function addDataToDB(){
         });
         
         if (newID === id) {
+            clearFormData();
             hideModelBox();
-            
+            callBack()
         }
-        
-
-        
-
-        
-        
 
         
     }
@@ -128,6 +125,12 @@ function displayData(){
         itemsContainer.innerHTML += template;
         
     }
+}
+
+
+function clearFormData(){
+    titleInput.value = ""
+    contentInput.value = ""
 }
 
 

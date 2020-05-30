@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ubuntu:wght@300&display=swap');
+
+
 *,html,body{
     padding: 0;
     margin: 0;
@@ -72,10 +75,10 @@
                         overflow: hidden;
 
                         h1{
-                            font-family: noto-serif;
+                            font-family: 'Bebas Neue', cursive;
                             font-size: 1rem;
                             letter-spacing: 0.5px;
-                            font-weight: bold;
+                            font-weight: 400;
                         }
                     }
 
@@ -86,8 +89,8 @@
                         overflow: hidden;
 
                         p{
-                            font-family: acme;
-                            font-size: 0.8rem;
+                            font-family: 'Ubuntu', sans-serif;
+                            font-size: 0.9rem;
                             font-weight: 300;
                             letter-spacing: 0.5px;
                             color: rgba(10, 10, 10, 0.664);
@@ -138,7 +141,7 @@
         height: 50vh;
         border-radius: 3px;
         padding: 15px;
-        background-color: #e0e0e0;
+        background-color: #ffffff;
 
         .add-data{
             width: 90%;
@@ -183,6 +186,7 @@
                 height: 40px;
                 border-radius: 3px;
                 padding-left: 5px;
+                background-color: #e4e4e4;
                 color: rgb(65, 64, 64);
             }
 

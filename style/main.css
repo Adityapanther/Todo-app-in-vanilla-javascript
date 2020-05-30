@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ubuntu:wght@300&display=swap");
 *, html, body {
   padding: 0;
   margin: 0;
@@ -97,10 +98,10 @@
 }
 
 #wrapper #list-container .items .item-container .item-left .item-title h1 {
-  font-family: noto-serif;
+  font-family: 'Bebas Neue', cursive;
   font-size: 1rem;
   letter-spacing: 0.5px;
-  font-weight: bold;
+  font-weight: 400;
 }
 
 #wrapper #list-container .items .item-container .item-left .item-content {
@@ -111,8 +112,8 @@
 }
 
 #wrapper #list-container .items .item-container .item-left .item-content p {
-  font-family: acme;
-  font-size: 0.8rem;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 0.9rem;
   font-weight: 300;
   letter-spacing: 0.5px;
   color: rgba(10, 10, 10, 0.664);
@@ -175,7 +176,7 @@
   height: 50vh;
   border-radius: 3px;
   padding: 15px;
-  background-color: #e0e0e0;
+  background-color: #ffffff;
 }
 
 .model-box-container .model-area .add-data {
@@ -238,6 +239,7 @@
   height: 40px;
   border-radius: 3px;
   padding-left: 5px;
+  background-color: #e4e4e4;
   color: #414040;
 }
 
