@@ -1,6 +1,6 @@
 const mainAddBtn = document.getElementById("mainAddBtn");
 const itemsContainer = document.querySelector(".items");
-const itemDeleteBtn = document.getElementById("");
+const itemDeleteBtn = document.getElementById("itemDeleteBtn");
 // model box
 const modelBox = document.getElementsByClassName("modelbox");
 const titleInput = document.getElementById("title");
@@ -48,6 +48,9 @@ var jData = [
 
 mainAddBtn.addEventListener('click', showModelBox);
 modelCloseBtn.addEventListener('click', hideModelBox);
+itemDeleteBtn.addEventListener('click', e =>{
+    deleteItems(e)
+})
 addContentBtn.addEventListener("click", ()=>{
     addDataToDB(displayData)
 })
@@ -67,8 +70,7 @@ function hideModelBox(){
 function addDataToDB(callBack){
     if (titleInput.value != "" && contentInput.value != "") {
         const id = jData.length +1;
-        
-        
+    
        var newID =  jData.push({
             "_id": id.toString(),
             "title":titleInput.value,
@@ -89,7 +91,6 @@ function displayData(){
 
     itemsContainer.innerHTML = ``;
     for(let i = jData.length -1; i >= 0; i--){
-        console.log(i);
         
         var dataID = jData[i]._id;
         var dataTitle = jData[i].title;
@@ -130,6 +131,11 @@ function displayData(){
         itemsContainer.innerHTML += template;
         
     }
+}
+
+function deleteItems(e){
+    console.log(e.target);
+    
 }
 
 
