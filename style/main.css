@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ubuntu:wght@300&display=swap");
 *, html, body {
   padding: 0;
   margin: 0;
@@ -89,6 +88,7 @@
 #wrapper #list-container .items .item-container .item-left {
   width: 90%;
   float: left;
+  height: 100%;
 }
 
 #wrapper #list-container .items .item-container .item-left .item-title {
@@ -121,6 +121,7 @@
 
 #wrapper #list-container .items .item-container .item-right {
   width: 10%;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -136,7 +137,6 @@
 #wrapper #list-container .items .item-container .item-right .clear-btn {
   width: 20px;
   height: 20px;
-  margin-top: 25px;
   border-radius: 50%;
   background-image: url(../img/delete.svg);
   background-repeat: no-repeat;

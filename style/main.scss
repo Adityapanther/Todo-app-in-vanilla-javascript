@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ubuntu:wght@300&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ubuntu:wght@300&display=swap');
 
 
 *,html,body{
@@ -68,6 +68,7 @@
                 .item-left{
                     width: 90%;
                     float: left;
+                    height: 100%;
 
                     .item-title {
                         width: 100%;
@@ -100,6 +101,7 @@
 
                 .item-right{
                     width: 10%;
+                    height: 100%;
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -108,7 +110,6 @@
                     .clear-btn{
                         width: 20px;
                         height: 20px;
-                        margin-top: 25px;
                         border-radius: 50%;
                         background-image: url(../img/delete.svg);
                         background-repeat: no-repeat;

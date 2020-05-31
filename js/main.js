@@ -1,6 +1,6 @@
 const mainAddBtn = document.getElementById("mainAddBtn");
 const itemsContainer = document.querySelector(".items");
-const itemDeleteBtn = document.getElementById("itemDeleteBtn");
+var itemDelBtn = document.getElementById("item-delete");
 // model box
 const modelBox = document.getElementsByClassName("modelbox");
 const titleInput = document.getElementById("title");
@@ -15,9 +15,6 @@ const alertOk = document.getElementById("dialogId");
 const alertCancel = document.getElementById("dialogCancel");
 
 // json data
-
-
-
 
 var jData = [
     {
@@ -43,22 +40,26 @@ var jData = [
 ]
 
 
-
-// event listener
-
-mainAddBtn.addEventListener('click', showModelBox);
-modelCloseBtn.addEventListener('click', hideModelBox);
-itemDeleteBtn.addEventListener('click',e =>{
-    console.log(e);
-    
-})
-addContentBtn.addEventListener("click", ()=>{
-    addDataToDB(displayData)
-})
-
 // display post todo app
 
 displayData();
+
+
+// event listener
+// show model box event
+mainAddBtn.addEventListener('click', showModelBox);
+//model close btn event
+modelCloseBtn.addEventListener('click', hideModelBox);
+// item delete button event
+itemDelBtn.addEventListener("click",deleteItems);
+// add item to db and view event
+addContentBtn.addEventListener("click", ()=>{
+    addDataToDB(displayData)
+});
+
+
+
+
 
 function showModelBox(){
     modelBox[0].classList.remove("invisible");
@@ -107,7 +108,7 @@ function displayData(){
                         </div>
                     </div>
                     <div class="item-right">
-                        <div id="itemDeleteBtn" class="clear-btn">
+                        <div class="clear-btn" id="itemDeleteBtn">
                             
                         </div>
                     </div>
@@ -118,8 +119,10 @@ function displayData(){
     }
 }
 
-function deleteItems(e){
-    console.log(e.target);
+function deleteItems(){
+   
+    console.log("hi");
+    
     
 }
 
@@ -134,4 +137,5 @@ function showToastMessage(msg){
     if (msg ==="" || msg === "undefined" || msg == null) return
 
 }
+
 
