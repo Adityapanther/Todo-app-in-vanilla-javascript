@@ -86,7 +86,7 @@
 }
 
 #wrapper #list-container .items .item-container .item-left {
-  width: 90%;
+  width: 80%;
   float: left;
   height: 100%;
 }
@@ -120,7 +120,7 @@
 }
 
 #wrapper #list-container .items .item-container .item-right {
-  width: 10%;
+  width: 20%;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -135,8 +135,9 @@
 }
 
 #wrapper #list-container .items .item-container .item-right .clear-btn {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
+  padding: 2px;
   border-radius: 50%;
   background-image: url(../img/delete.svg);
   background-repeat: no-repeat;

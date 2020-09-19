@@ -1,6 +1,6 @@
 const mainAddBtn = document.getElementById("mainAddBtn");
 const itemsContainer = document.querySelector(".items");
-var itemDelBtn = document.getElementById("item-delete");
+const itemDeleteBtn = document.getElementById("item-delete-btn");
 // model box
 const modelBox = document.getElementsByClassName("modelbox");
 const titleInput = document.getElementById("title");
@@ -37,7 +37,7 @@ var jData = [
         "title": "3:30 PM physics classes ",
         "content": "we have to take mayank sir class at 3:30 PM tomorrow. a man going to arah to take classes"
     }
-]
+];
 
 
 // display post todo app
@@ -51,7 +51,14 @@ mainAddBtn.addEventListener('click', showModelBox);
 //model close btn event
 modelCloseBtn.addEventListener('click', hideModelBox);
 // item delete button event
-itemDelBtn.addEventListener("click",deleteItems);
+itemDeleteBtn.addEventListener('click', e =>{
+    
+    console.log("add-data");
+    
+    
+});
+
+
 // add item to db and view event
 addContentBtn.addEventListener("click", ()=>{
     addDataToDB(displayData)
@@ -98,23 +105,9 @@ function displayData(){
         var dataTitle = jData[i].title;
         var dataContent = jData[i].content;
         
-        var template = `<div id= "${dataID}" class="item-container">
-                    <div class="item-left">
-                        <div class="item-title">
-                            <h1>${dataTitle}</h1>
-                        </div>
-                        <div class="item-content">
-                            <p>${dataContent}</p>
-                        </div>
-                    </div>
-                    <div class="item-right">
-                        <div class="clear-btn" id="itemDeleteBtn">
-                            
-                        </div>
-                    </div>
-                </div>`
+        const templates = `<div id= "${dataID}" class="item-container">`+`<div class="item-left">`+`<div class="item-title">`+`<h1>${dataTitle}</h1>`+`</div>`+`<div class="item-content">`+ `<p>${dataContent}</p>`+`</div>`+ `</div>`+ `<div class="item-right">`+`<div class="clear-btn" id="item-delete-btn" >`+`</div>`+`</div>`+`</div>`;
 
-        itemsContainer.innerHTML += template;
+        itemsContainer.innerHTML += templates;
         
     }
 }
