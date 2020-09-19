@@ -1,6 +1,8 @@
 const mainAddBtn = document.getElementById("mainAddBtn");
 const itemsContainer = document.querySelector(".items");
-const itemDeleteBtn = document.getElementById("item-delete-btn");
+const delBtn = document.getElementsByClassName('clear-btn');
+
+
 // model box
 const modelBox = document.getElementsByClassName("modelbox");
 const titleInput = document.getElementById("title");
@@ -51,14 +53,13 @@ mainAddBtn.addEventListener('click', showModelBox);
 //model close btn event
 modelCloseBtn.addEventListener('click', hideModelBox);
 // item delete button event
-itemDeleteBtn.addEventListener('click', e =>{
-    
-    console.log("add-data");
-    
-    
-});
+addEventListenerToDeleteBtn();
 
-
+function addEventListenerToDeleteBtn(){
+    for (var i = 0; i < delBtn.length; i++) {
+        delBtn[i].addEventListener('click', deleteItems)
+    }
+}
 // add item to db and view event
 addContentBtn.addEventListener("click", ()=>{
     addDataToDB(displayData)
@@ -94,29 +95,41 @@ function addDataToDB(callBack){
 
         
     }
+    addEventListenerToDeleteBtn();
 }
 
 function displayData(){
 
-    itemsContainer.innerHTML = ``;
+    itemsContainer.innerHTML = ``; 
+    
     for(let i = jData.length -1; i >= 0; i--){
         
         var dataID = jData[i]._id;
         var dataTitle = jData[i].title;
         var dataContent = jData[i].content;
         
-        const templates = `<div id= "${dataID}" class="item-container">`+`<div class="item-left">`+`<div class="item-title">`+`<h1>${dataTitle}</h1>`+`</div>`+`<div class="item-content">`+ `<p>${dataContent}</p>`+`</div>`+ `</div>`+ `<div class="item-right">`+`<div class="clear-btn" id="item-delete-btn" >`+`</div>`+`</div>`+`</div>`;
+        const templates = `<div id= "${dataID}" class="item-container">` + 
+        `<div class="item-left">` + 
+        `<div class="item-title">` +
+         `<h1>${dataTitle}</h1>` + 
+         `</div>` + 
+         `<div class="item-content">` + 
+         `<p>${dataContent}</p>` + 
+         `</div>` + 
+         `</div>` + 
+         `<div class="item-right">`+ 
+         `<div class="clear-btn" ` +
+           `</div>` + 
+           `</div>` + 
+           `</div>`;
 
         itemsContainer.innerHTML += templates;
         
     }
 }
 
-function deleteItems(){
-   
-    console.log("hi");
-    
-    
+function deleteItems(e){
+    e.target.parentNode.parentNode.remove()
 }
 
 
