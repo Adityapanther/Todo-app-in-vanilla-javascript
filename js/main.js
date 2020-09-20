@@ -18,7 +18,8 @@ const alertCancel = document.getElementById("dialogCancel");
 
 // json data
 
-var jData = [
+var jsonData = {
+    allData: [
     {
         "_id": "1",
         "title":"how are today aditya ",
@@ -39,7 +40,8 @@ var jData = [
         "title": "3:30 PM physics classes ",
         "content": "we have to take mayank sir class at 3:30 PM tomorrow. a man going to arah to take classes"
     }
-];
+]
+}
 
 
 // display post todo app
@@ -79,12 +81,12 @@ function hideModelBox(){
 
 function addDataToDB(callBack){
     if (titleInput.value != "" && contentInput.value != "") {
-        const id = jData.length +1;
+        const id = jsonData.allData.length +1;
     
-       var newID =  jData.push({
-            "_id": id.toString(),
-            "title":titleInput.value,
-            "content": contentInput.value
+       var newID =  jsonData.allData.push({
+            _id: id.toString(),
+            title: titleInput.value,
+            content: contentInput.value
         });
         
         if (newID === id) {
@@ -101,12 +103,12 @@ function addDataToDB(callBack){
 function displayData(){
 
     itemsContainer.innerHTML = ``; 
-    
-    for(let i = jData.length -1; i >= 0; i--){
+    const data = jsonData.allData
+    for(let i = data.length -1; i >= 0; i--){
         
-        var dataID = jData[i]._id;
-        var dataTitle = jData[i].title;
-        var dataContent = jData[i].content;
+        var dataID = data[i]._id;
+        var dataTitle = data[i].title;
+        var dataContent = data[i].content;
         
         const templates = `<div id= "${dataID}" class="item-container">` + 
         `<div class="item-left">` + 
@@ -127,9 +129,20 @@ function displayData(){
         
     }
 }
+console.log(jsonData.allData);
+
 
 function deleteItems(e){
-    e.target.parentNode.parentNode.remove()
+    const m = e.target.parentNode.parentNode.id
+    console.log(m);
+    jsonData.allData.forEach( data=>{
+       if (data._id === m) {
+           const index =jsonData.allData.indexOf(data);
+           delete jsonData.allData[index];
+           e.target.parentNode.parentNode.remove();
+       }
+       
+    })
 }
 
 
