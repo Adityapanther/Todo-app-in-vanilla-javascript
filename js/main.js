@@ -21,22 +21,22 @@ const alertCancel = document.getElementById("dialogCancel");
 var jsonData = {
     allData: [
     {
-        "_id": "1",
+        "_id": 1,
         "title":"how are today aditya ",
         "content": "defenetly final sections"
     },
     {
-        "_id": "2",
+        "_id": 2,
         "title": "join online class",
         "content": "i have to join online class on 12:30 P.M."
     },
     {
-        "_id": "3",
+        "_id": 3,
         "title": "have to go on mall today",
         "content": "i have to buy some beauty, Jeans, shirt and tshirt product from mall"
     },
     {
-        "_id": "4",
+        "_id": 4,
         "title": "3:30 PM physics classes ",
         "content": "we have to take mayank sir class at 3:30 PM tomorrow. a man going to arah to take classes"
     }
@@ -84,10 +84,12 @@ function addDataToDB(callBack){
         const id = jsonData.allData.length +1;
     
        var newID =  jsonData.allData.push({
-            _id: id.toString(),
-            title: titleInput.value,
-            content: contentInput.value
+            "_id": parseInt(id),
+            "title": titleInput.value.toString(),
+            "content": contentInput.value.toString()
         });
+
+        
         
         if (newID === id) {
             clearFormData();
@@ -104,7 +106,7 @@ function displayData(){
 
     itemsContainer.innerHTML = ``; 
     const data = jsonData.allData
-    for(let i = data.length -1; i >= 0; i--){
+    for(var i = data.length - 1; i >= 0; i--){
         
         var dataID = data[i]._id;
         var dataTitle = data[i].title;
@@ -129,6 +131,9 @@ function displayData(){
         
     }
 }
+
+
+
 console.log(jsonData.allData);
 
 
@@ -138,6 +143,8 @@ function deleteItems(e){
     jsonData.allData.forEach( data=>{
        if (data._id === m) {
            const index =jsonData.allData.indexOf(data);
+           console.log(index);
+           
            delete jsonData.allData[index];
            e.target.parentNode.parentNode.remove();
        }
