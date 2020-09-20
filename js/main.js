@@ -1,3 +1,9 @@
+window.addEventListener('load',  e =>{
+    // display post todo app
+    displayData();
+})
+
+
 const mainAddBtn = document.getElementById("mainAddBtn");
 const itemsContainer = document.querySelector(".items");
 const delBtn = document.getElementsByClassName('clear-btn');
@@ -44,9 +50,7 @@ var jsonData = {
 }
 
 
-// display post todo app
 
-displayData();
 
 
 // event listener
@@ -63,7 +67,7 @@ function addEventListenerToDeleteBtn(){
     }
 }
 // add item to db and view event
-addContentBtn.addEventListener("click", ()=>{
+addContentBtn.addEventListener("click", (e)=>{
     addDataToDB(displayData)
 });
 
@@ -79,7 +83,7 @@ function hideModelBox(){
     modelBox[0].classList.add("invisible");
 }
 
-function addDataToDB(callBack){
+function addDataToDB(callback){
     if (titleInput.value != "" && contentInput.value != "") {
         const id = jsonData.allData.length +1;
     
@@ -89,12 +93,15 @@ function addDataToDB(callBack){
             "content": contentInput.value.toString()
         });
 
+        console.log(newID);
+        console.log(id);
+        
         
         
         if (newID === id) {
             clearFormData();
             hideModelBox();
-            callBack()
+            callback()
         }
 
         
@@ -106,11 +113,18 @@ function displayData(){
 
     itemsContainer.innerHTML = ``; 
     const data = jsonData.allData
+    console.log(data.length);
+    
     for(var i = data.length - 1; i >= 0; i--){
+        console.log(data[i]);
         
-        var dataID = data[i]._id;
-        var dataTitle = data[i].title;
-        var dataContent = data[i].content;
+        if (data[i] != null && data[i] !== "empty")  {
+            var dataID = data[i]._id;
+            var dataTitle = data[i].title;
+            var dataContent = data[i].content;
+        }else {
+          return
+        }
         
         const templates = `<div id= "${dataID}" class="item-container">` + 
         `<div class="item-left">` + 
@@ -139,14 +153,13 @@ console.log(jsonData.allData);
 
 function deleteItems(e){
     const m = e.target.parentNode.parentNode.id
-    console.log(m);
     jsonData.allData.forEach( data=>{
-       if (data._id === m) {
+       if (data._id === parseInt(m)) {
            const index =jsonData.allData.indexOf(data);
            console.log(index);
-           
            delete jsonData.allData[index];
            e.target.parentNode.parentNode.remove();
+           displayData();
        }
        
     })
